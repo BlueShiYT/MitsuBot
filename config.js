@@ -1,5 +1,26 @@
 let fs = require('fs')
 let chalk = require('chalk')
+let moment = require('moment-timezone')
+let d = new Date(new Date + 3600000)
+let locale = 'id'
+let week = d.toLocaleDateString(locale, { weekday: 'long' })
+let date = d.toLocaleDateString(locale, {
+day: 'numeric',
+month: 'long',
+year: 'numeric'
+})
+
+let time = d.toLocaleTimeString(locale, {
+hour: 'numeric',
+minute: 'numeric',
+second: 'numeric'
+})
+let wktu = moment.tz('Asia/Jakarta').format('HH:mm:ss')
+
+function pickRandom(list) {
+  return list[Math.floor(Math.random() * list.length)]
+}
+
 global.DeveloperMode = 'false' //true Or false
 global.linkGC = ['https://chat.whatsapp.com/EhlGwI1K95N1VnwIrwJ838', 'https://chat.whatsapp.com/CMX7x9xLTV3IHKH7LWuxZU', 'https://chat.whatsapp.com/EHURKHammswAwFozEY5JEN']
 global.Owner = {
@@ -44,9 +65,9 @@ global.Owner = {
   },
  
 }
-global.mods = ['6287874779888', '6288291663748', '6285725741841', '6285795404882', '6281804074866', '62856956012944'] // Want some help?
+global.mods = ['62856956012944'] // Want some help?
 global.prems = JSON.parse(fs.readFileSync('./src/premium.json')) // Premium user has unlimited limit
-global.APIs = { // API Prefix
+global.APIs = { // API Prefix kalo mau nambah silahkan
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
   xteam: 'https://api.xteam.xyz',
@@ -61,7 +82,7 @@ global.APIs = { // API Prefix
   LeysCoder: 'https://leyscoders-api.herokuapp.com',
   adiisus: 'https://adiixyzapi.herokuapp.com'
 }
-global.APIKeys = { // APIKey Here
+global.APIKeys = { // APIKey Here kalo mau nambah silahkan
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
@@ -72,14 +93,15 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'Satu Untuk Semua'
-global.author = 'MitsuhaBotz Is The Best'
+global.packname = 'Satu Untuk Semua' //ganti
+global.author = 'Subscribe To BlueShiYT' //ganti
 
 global.multiplier = 25 // The higher, The harder levelup
 
-global.botwm = 'Botz Whatsapp'
+global.botwm = 'Botz Whatsapp|Subs BlueShiYT' //ganti
+global.botdate = `❏ ${wktu}\n❏ ${week} ${date}`
 global.logo = fs.readFileSync('./src/kanna.jpg')
-global.yt = 'youtube.com/c/TheBlueShi'
+global.yt = 'youtube.com/c/TheBlueShi' //kalo gak punya yt biarin anggap aja credit:>
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
