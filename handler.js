@@ -627,12 +627,136 @@ global.dfail = (type, m, conn) => {
     mods: 'Cuman Moderator Only!, Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
     premium: 'Emang Lu Premium Member Hah?!, Perintah ini hanya untuk member _*Premium*_ !',
     group: 'Perintah ini hanya dapat digunakan di grup!',
-    unreg: ' *「  BELUM TERDAFTAR 」* \nHalo Kak, Yuk Daftar Dulu Karena Anda Belum Terdaftar Dalam Database Bot\n\nKetik : #daftar nama.umur\nContoh : #daftar Botz Whatsapp.17',
+    //unreg: ' *「  BELUM TERDAFTAR 」* \nHalo Kak, Yuk Daftar Dulu Karena Anda Belum Terdaftar Dalam Database Bot\n\nKetik : #daftar nama.umur\nContoh : #daftar Botz Whatsapp.17',
     private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
     admin: 'Emang Lu Admin Hah!?, Perintah ini hanya untuk *Admin* grup!',
     botAdmin: 'Bot Belum Admin Tod!, Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
   }[type]
-  if (msg) return m.reply(msg)
+    if (msg) return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
+        "listMessage": {
+          "title": msg,
+          "description": des,
+          "footerText": global.botdate,
+          "buttonText": "Kanna BOT",
+          "listType": "SINGLE_SELECT",
+          "sections": [
+                            {
+                                "rows": [{
+                                         "title": `MY OWNER`,
+                                         "description": "List Owner",
+                                         "rowId": ".owner"
+                                    }, {
+                                         "title": `ABOUT`,
+                                         "description": " Tentang BOT Ini", 
+                                         "rowId": ".info"
+                                    }, {
+                                         "title": `LIST MENU`,
+                                         "description": " List Menu Bot Ini",
+                                         "rowId": ".menu"
+                                    }, {
+                                         "title": `SCRIPT`,
+                                         "description": " Source code BOT Ini",
+                                         "rowId": ".sc"
+                                         }, {
+                                         "title": `Speed Bot`,
+                                         "description": " Mengetauhi Kecepatan Respon Bot",
+                                         "rowId": ".gcbot"
+                       }],
+                    "title": "Created By ℓettα - sαmα ♡"
+                  }
+                        ], "contextInfo": 
+                         { "stanzaId": m.key.id,
+                        "participant": m.sender,
+                        "quotedMessage": m.message
+                        }
+                      }
+                     }, {quoted: m, contexInfo: { mentionedJid: conn.parseMention(fot)}}), {waitForAck: true})
+
+let namae = conn.getName(m.sender)
+let titreg = '*── 「 NOT REGISTERED 」 ──*'
+  let msgg = {
+  unreg: `
+Halo kak ${namae} !
+Yuk Daftar Dulu Karena Anda Belum Terdaftar Dalam Database Bot 🗂️
+    
+📮 Silahkan Klik tombol dibawah, dan pilih umur anda!`
+}[type]
+  if (msgg) return conn.relayWAMessage(conn.prepareMessageFromContent(m.chat, {
+        "listMessage": {
+          "title": titreg,
+          "description": msgg,
+          "footerText": global.botdate,
+          "buttonText": "VERIFY",
+          "listType": "SINGLE_SELECT",
+          "sections": [
+                            {
+                                "rows": [{
+                                         "title": '27 Tahun',
+                                         "rowId": '.daftar ' + namae + '.27'
+                                    }, {
+                                         "title": '26 Tahun',
+                                         "rowId": '.daftar ' + namae + '.26'
+                                    }, {
+                                	"title": '25 Tahun',
+                                         "rowId": '.daftar ' + namae + '.25'
+                                    }, {
+                                	"title": '24 Tahun',
+                                         "rowId": '.daftar ' + namae + '.24'
+                                    }, {
+                                	"title": '23 Tahun',
+                                         "rowId": '.daftar ' + namae + '.23'
+                                    }, {
+                                	"title": '22 Tahun',
+                                         "rowId": '.daftar ' + namae + '.22'
+                                    }, {
+                                	"title": '21 Tahun',
+                                         "rowId": '.daftar ' + namae + '.21'
+                                    }, {
+                                	"title": '20 Tahun',
+                                         "rowId": '.daftar ' + namae + '.20'
+                                    }, {
+                                	"title": '19 Tahun',
+                                         "rowId": '.daftar ' + namae + '.19'
+                                    }, {
+                                	"title": '18 Tahun',
+                                         "rowId": '.daftar ' + namae + '.18'
+                                    }, {
+                                	"title": '17 Tahun',
+                                         "rowId": '.daftar ' + namae + '.17'
+                                    }, {
+                                	"title": '16 Tahun',
+                                         "rowId": '.daftar ' + namae + '.16'
+                                    }, {
+                                	"title": '15 Tahun',
+                                         "rowId": '.daftar ' + namae + '.15'
+                                    }, {
+                                	"title": '14 Tahun',
+                                         "rowId": '.daftar ' + namae + '.14'
+                                    }, {
+                                	"title": '13 Tahun',
+                                         "rowId": '.daftar ' + namae + '.13'
+                                    }, {
+                                	"title": '12 Tahun',
+                                         "rowId": '.daftar ' + namae + '.12'
+                                    }, {
+                                	"title": '11 Tahun',
+                                         "rowId": '.daftar ' + namae + '.11'
+                                    }, {
+                                	"title": '10 Tahun',
+                                         "rowId": '.daftar ' + namae + '.10'
+                                         }, {
+                                	"title": '9 Tahun',
+                                         "rowId": '.daftar ' + namae + '.9'
+                       }],
+                    "title": "Silahkan Pilih Umur Anda!"
+                  }
+                        ], "contextInfo": 
+                         { "stanzaId": m.key.id,
+                        "participant": m.sender,
+                        "quotedMessage": m.message
+                        }
+                      }
+                     }, {quoted: m, contexInfo: { mentionedJid: [m.sender]}}), {waitForAck: true})
 }
 
 let fs = require('fs')
