@@ -1,13 +1,13 @@
 let handler = async (m, { text, usedPrefix, command }) => {
-    if (!text) throw `uhm.. teksnya mana?\n\npenggunaan:\n${usedPrefix + command} <teks>\n\ncontoh:\n${usedPrefix + command} plugins/the.sad.boy01.js`
-    if (!m.quoted.text) throw `Reply pesan nya!`
+    if (!text) throw `where is the path?\n\nexample:\n${usedPrefix + command} plugins/menu.js`
+    if (!m.quoted.text) throw `reply code`
     let path = `${text}`
     await require('fs').writeFileSync(path, m.quoted.text)
-    m.reply(`tersimpan di ${path}`)
+    m.reply(`Saved ${path} to file!`)
 }
-handler.help = ['sf'].map(v => v + ' <teks>')
+handler.help = ['savefile', 'sf'].map(v => v + ' <path>')
 handler.tags = ['owner']
-handler.command = /^sf$/i
+handler.command = ['savefile', 'sf']
 
 handler.rowner = true
 
