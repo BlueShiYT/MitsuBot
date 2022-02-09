@@ -28,7 +28,7 @@
 ```bash
 pkg update && pkg upgrade
 pkg install bash && pkg install wget
-wget -O - https://raw.githubusercontent.com/BochilGaming/games-wabot/main/install2.sh | bash
+wget -O - https://raw.githubusercontent.com/BlueShiYT/MitsuBot/main/install2.sh | bash
 ```
 
 ---------
@@ -62,7 +62,7 @@ apt install wget curl git ffmpeg imagemagick build-essential libcairo2-dev libpa
 ubuntu
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 apt install -y nodejs gcc g++ make
-git clone https://github.com/BochilGaming/games-wabot
+git clone https://github.com/BlueShiYT/MitsuBot
 cd games-wabot
 npm install
 npm update
@@ -78,7 +78,7 @@ npm update
 * Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/BochilGaming/games-wabot
+git clone https://github.com/BlueShiYt/MitsuBot
 cd games-wabot
 npm install
 npm update
