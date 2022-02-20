@@ -44,7 +44,7 @@ ${(global.linkGC).map((v, i) => '║ *Group ' + (i + 1) + '*\n║' + v).join`\n�
 ╠═ ©2022 ${conn.user.name}
 ╠═ Recode By BlueShiYT
 ╠═〘 ${conn.user.name} 〙 ═
-`.trim()
+`.trim(), m)
 }
 handler.help = ['info']
 handler.tags = ['about']
