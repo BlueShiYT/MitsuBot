@@ -77,9 +77,9 @@ global.APIs = { // API Prefix kalo mau nambah silahkan
   fdci: 'https://api.fdci.se',
   dzx: 'https://api.dhamzxploit.my.id',
   zahir: 'https://zahirr-web.herokuapp.com',
-  zeks: 'https://api.zeks.xyz',
-  pencarikode: 'https://pencarikode.xyz',
-  hardianto: 'http://hardianto-chan.herokuapp.com',
+  zeks: 'https://api.zeks.me',
+  pencarikode: 'https://api.chipa.xyz',
+  hardianto: 'http://hardianto.xyz',
   LeysCoder: 'https://leyscoders-api.herokuapp.com',
   adiisus: 'https://adiixyzapi.herokuapp.com'
 }
