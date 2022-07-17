@@ -11,4 +11,6 @@ handler.help = ['aco'].map(v => v + ' [teks]')
 handler.tags = ['fun']
 handler.command = /^(aco)$/i
 
+handler.register = true
+
 module.exports = handler
