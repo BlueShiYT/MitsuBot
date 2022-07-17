@@ -1,13 +1,15 @@
+import { areJidsSameUser } from '@adiwajshing/baileys'
 let handler = async (m, { conn, args }) => {
-  let group = args[0] ? args[0] : m.chat
-  if (/^[0-9]{5,16}-[0-9]+@g\.us$/.test(args[0])) group = args[0]
-  let groupMetadata = await conn.groupMetadata(group)
-  if (!groupMetadata) throw 'groupMetadata is undefined'
-  if (!'participants' in groupMetadata) throw 'participants is not defined'
-  let me = groupMetadata.participants.find(user => user.jid === conn.user.jid)
-  if (!me) throw 'Aku tidak ada di grup itu :/'
-  if (me.isAdmin !== true) throw 'Aku bukan admin T_T'
-  m.reply('https://chat.whatsapp.com/' + await conn.groupInviteCode(group))
+    let group = m.chat
+    if (/^[0-9]{5,16}-?[0-9]+@g\.us$/.test(args[0])) group = args[0]
+    if (!/^[0-9]{5,16}-?[0-9]+@g\.us$/.test(group)) throw 'Hanya bisa dibuka di grup'
+    let groupMetadata = await conn.groupMetadata(group)
+    if (!groupMetadata) throw 'groupMetadata is undefined :\\'
+    if (!('participants' in groupMetadata)) throw 'participants is not defined :('
+    let me = groupMetadata.participants.find(user => areJidsSameUser(user.id, conn.user.id))
+    if (!me) throw 'Aku tidak ada di grup itu :('
+    if (!me.admin) throw 'Aku bukan admin T_T'
+    conn.sendHydrated(m.chat, `Link Group *${groupMetadata.subject}*`, 'Regards by Rizxyu', null, `https://www.whatsapp.com/otp/copy/https://chat.whatsapp.com/${await conn.groupInviteCode(group)}`, 'Copy Link Group', null, null, [[null,null]], m)
 }
 handler.help = ['linkgroup']
 handler.tags = ['group']
@@ -19,7 +21,7 @@ handler.group = true
 handler.private = false
 
 handler.admin = false
-handler.botAdmin = false
+handler.botAdmin = true 
 
 handler.fail = null
 
